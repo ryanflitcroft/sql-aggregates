@@ -4,8 +4,10 @@ const pool = require('../lib/utils/pool');
 describe('exercise 1', () => {
   afterAll(() => pool.end());
 
-  it('find the title and count of the top 10 most rented films', async() => {
-    const { rows } = await pool.query(fs.readFileSync(`${__dirname}/exercise-1.sql`, 'utf-8'));
+  it('find the title and count of the top 10 most rented films', async () => {
+    const { rows } = await pool.query(
+      fs.readFileSync(`${__dirname}/exercise-1.sql`, 'utf-8')
+    );
     expect(rows).toEqual([
       { title: 'Bucket Brotherhood', count: '34' },
       { title: 'Rocketeer Mother', count: '33' },
